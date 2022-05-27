@@ -1,0 +1,61 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: url(/assets/images/login_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.loginAndRegBox {
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    position: absolute;
+    /* 定位居中方式 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    height: 60px;
+    /* no-repeat取消照片平铺 */
+    background: url(/assets/images/login_title.png) no-repeat center;
+}
+
+.reg-box {
+    display: none;
+}
+
+.layui-form {
+    padding: 0 30px;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    font-size: 14px;
+}
+
+.layui-form-item {
+    position: relative;
+}
+
+.layui-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px
+}
+
+/* padding和margin的区别 
+margin是外边距时盒子与盒子之间的距离简单说就是隔开元素与元素之间的间距
+padding是内边距是盒子内部与元素之间的记录，是用来隔开元素与内部内容的距离
+*/
+.layui-input {
+    padding-left: 32px
+}
