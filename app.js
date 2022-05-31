@@ -47,14 +47,20 @@ app.use(expressJWT({ secret: config.jwtSecretkey, algorithms: ['HS256'] }).unles
 /* ------------------------------------------------- */
 
 
-// 导入并使用用户路由模块
+// 1.导入并使用用户路由模块
 const userRouter = require('./router/user')
 app.use('/api', userRouter)  //api是前缀，访问前缀
 
 
-//导入并使用用户信息的路由模块
+//2.导入并使用用户信息的路由模块
 const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
+
+
+//3.导入并使用文章分类的路由模块
+const artCateRoutre = require('./router/artcate')
+app.use('/my/article', artCateRoutre)
+
 
 
 
