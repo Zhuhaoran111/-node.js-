@@ -62,6 +62,12 @@ const artCateRoutre = require('./router/artcate')
 app.use('/my/article', artCateRoutre)
 
 
+//4.导入并视使用文章管理的路由模快
+const articleRouter = require('./router/article')
+// 为文章的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', articleRouter)
+
+
 
 
 // 错误中间件
