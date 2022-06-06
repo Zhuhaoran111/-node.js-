@@ -1,3 +1,6 @@
+
+
+
 $(function () {
     var layer = layui.layer
     var form = layui.form
@@ -136,4 +139,44 @@ $(function () {
             }
         })
     }
+
+
+    //通过代理的形式，为删除按钮绑定点击处理函数
+    $('tbody').on('click', '.btn-delete', function () {
+        //获取删除按钮的个数  
+        var len = $('.btn-delete').length
+        console.log(len)
+
+        //通过自定义属性获取文章的id
+        var id = $(this).attr('data-id')
+        //询问用户是否删除
+        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
+
+            //发起请求
+            $.ajax({
+                method: 'GET',
+                url: '/my/article/deleteList/' + id,
+                success: function (res) {
+                    if (res.status !== 0) {
+                        return layer.msg('删除文章列表失败')
+                    }
+                    layer.msg('删除文章列表成功！')
+
+                    //当数据完成后，判断当前这一页是否有剩余的数据
+                    //如果没有剩余的数据则让页码值-1，重新调用inittable()方法
+
+                    //下面的表达式是为了删除某一页数据后，页码重新渲染时，上一页没数据
+                    if (len === 1) {
+                        //如果len的值为1则表示，证明删除后页面上就没有任何数据了
+                        //页码值最小为1
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
+
+                    initTable() //数据刷新
+                }
+            })
+            layer.close(index);
+
+        });
+    })
 })

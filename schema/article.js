@@ -25,3 +25,8 @@ exports.list_article_schema = {
         state: state_optional
     }
 }
+exports.delete_article_schema = {
+    params: {
+        id,
+    },
+}

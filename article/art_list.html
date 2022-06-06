@@ -83,8 +83,8 @@
             <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>
-                <button type="button" class="layui-btn  layui-btn-xs">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger  layui-btn-xs">删除</button>
+                <button type="button" class="layui-btn  layui-btn-xs ">编辑</button>
+                <button type="button" class="layui-btn layui-btn-danger  layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each data}}

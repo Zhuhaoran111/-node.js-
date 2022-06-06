@@ -36,6 +36,21 @@ exports.getArticleList = async (req, res) => {
     })
 }
 
+//根据id删除文章列表的函数
+exports.deleteArticleById = (req, res) => {
+    //根据id修改删除数据，但数据库不是真正的删除，只是为is_delete做个标识
+    const sql = `update ev_articles set is_delete=1 where id=?`
+    db.query(sql, req.params.id, (err, results) => {
+        //查找失败，返回错误信息
+        if (err) return res.cc(err)
+        if (results.affectedRows !== 1) return res.cc('删除文章列表失败')
+
+        //删除文章列表成功
+        res.cc('删除文章列表成功', 0)
+        //传的这个0至关重要，不加的话强点击删除会强制到登陆
+    })
+}
+
 
 // 发布新文章的处理函数
 exports.addArticle = (req, res) => {
