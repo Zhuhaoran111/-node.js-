@@ -16,7 +16,7 @@
     <div class="layui-card">
         <div class="layui-card-header">写文章</div>
         <div class="layui-card-body">
-            <form class="layui-form">
+            <form class="layui-form" id="form-pub">
                 <!-- 第一行 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
@@ -63,6 +63,7 @@
                                 <div class="img-preview"></div>
                                 <button type="button" class="layui-btn layui-btn-danger"
                                     id="btnChooseImage">选择封面</button>
+                                <!-- 隐藏的文件选择框 -->
                                 <input type="file" id="coverFile" style="display: none"
                                     accept="image/png,image/jpeg,image/gif" />
                             </div>
@@ -76,7 +77,7 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit>发布</button>
-                        <button class="layui-btn layui-btn-primary" lay-submit>存为草稿</button>
+                        <button class="layui-btn layui-btn-primary" lay-submit id="btnSave">存为草稿</button>
 
                     </div>
                 </div>

@@ -15,6 +15,9 @@ const joi = require('joi')
 /* 配置表单数据的中间件 这个只能配置解析 application/x-www-form-urlencoded 格式的表单数据的中间件*/
 app.use(express.urlencoded({ extended: false }))
 
+// 托管静态资源文件(图片文件)
+app.use('/uploads', express.static('./uploads'))
+
 //中间件的编写一定要在路由之前，而不能在路由之后，把封装的函数放在
 //中间件，中间件处理完，里面next会转交给路由去处理
 app.use((req, res, next) => {
@@ -67,7 +70,7 @@ const articleRouter = require('./router/article')
 // 为文章的路由挂载统一的访问前缀 /my/article
 app.use('/my/article', articleRouter)
 
-//导入并使用文章列表的路由模块
+
 
 
 

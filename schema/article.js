@@ -25,8 +25,19 @@ exports.list_article_schema = {
         state: state_optional
     }
 }
+//向外暴露删除列表的验证规则
 exports.delete_article_schema = {
     params: {
         id,
+    },
+}
+
+//向外暴露发布文章的验证规则
+exports.add_article_schema = {
+    body: {
+        title,
+        cate_id,
+        content,
+        state,
     },
 }
