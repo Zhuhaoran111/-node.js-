@@ -69,6 +69,8 @@
 
 
             <!-- 分页区域 -->
+            <div id="pageBox"></div>
+
         </div>
     </div>
 
@@ -77,7 +79,7 @@
         {{each data}}
         <tr>
             <td>{{$value.title}}</td>
-            <td>{{$value.cat_name}}</td>
+            <td>{{$value.cate_name}}</td>
             <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>
