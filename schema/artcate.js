@@ -12,7 +12,7 @@ const id = joi.number().integer().min(1).required()
 exports.add_cate_schema = {
     body: {
         name,
-        alias,
+        alias
     },
 }
 

@@ -48,9 +48,10 @@ $(function () {
         let data = { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val() }
         console.log('aaa')
         //注意这里#form_reg和后面的 [name=username]必须有空格
-        $.post('http://127.0.0.1:3007/api/reguser', data, function (res) {
+        $.post('/api/reguser', data, function (res) {
+            console.log('注册接口能走通吗')
             if (res.status !== 0) {
-                // return console.log(res.message)
+                return console.log(res.message)
                 return layer.msg(res.message)
             }
             // console.log('注册成功')

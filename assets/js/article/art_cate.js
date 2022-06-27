@@ -1,7 +1,4 @@
 
-
-
-
 $(function () {
     var layer = layui.layer
     var form = layui.form
@@ -39,6 +36,7 @@ $(function () {
             url: '/my/article/addcates',
             data: $(this).serialize(),
             success: function (res) {
+                console.log(res)
                 if (res.status !== 0) {
                     return layer.msg('新增分类失败')
                 }
